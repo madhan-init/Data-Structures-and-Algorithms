@@ -1,4 +1,4 @@
-public class Rearrange_Array_Elements_by_Sign {
+public class RearrangeArray_Elements_by_Sign {
     static void main(String[] args) {
         int[] arr={1,-1,2,3,-2};
 int[] res=new int[arr.length];
