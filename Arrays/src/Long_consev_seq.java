@@ -13,7 +13,6 @@ public class Long_consev_seq {
                     maxcount=count;
                 }
             }
-
         }
         System.out.println(maxcount);
     }
