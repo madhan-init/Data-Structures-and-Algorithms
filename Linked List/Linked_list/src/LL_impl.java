@@ -1,11 +1,3 @@
-class Node{
-    int data;
-    Node next;
-    Node(int data){
-        this.data=data;
-        this.next=null;
-    }
-}
 public class LL_impl {
     static Node head=null;
     static Node tail=null;
@@ -53,9 +45,7 @@ public class LL_impl {
         insert_end(6);
         insert_end(7);
         insert_end(8);
-        insert_begining(4);
-        insert_begining(3);
-        in_between(6,9);
         display();
     }
 }
+

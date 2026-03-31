@@ -15,7 +15,6 @@ public class DoublyLinkedList {
     static Node head = null;
     static Node tail = null;
 
-    // Insert at beginning
     public static void insertFront(int data) {
         Node newNode = new Node(data);
 
