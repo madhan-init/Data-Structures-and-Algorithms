@@ -48,6 +48,4 @@ public class Stack_LL {
         pop();
         peek();
     }
-
-
 }
