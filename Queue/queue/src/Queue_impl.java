@@ -1,46 +1,44 @@
-public class Queue_impl {
-    static int[] arr= new int[5];
-    static int front=-1;
-    static int rear=-1;
+class Node{
+    int data;
+    Node next;
+
+    public Node(int data) {
+        this.data = data;
+        this.next=null;
+    }
+}
+class Queue_impl{
+    static Node front=null;
+    static Node rear=null;
 
     public static void enqueue(int data){
-        if(rear==arr.length-1){
-            System.out.println("queue full");
+        Node n=new Node(data);
+        if(rear == null){
+            front=rear=n;
             return;
         }
-        if(front==-1){
-            front=0;
-        }
-        rear++;
-        arr[rear]=data;
+        rear.next=n;
+        rear=n;
     }
     public static void dequeue(){
-        if(front==-1){
-            System.out.println("queue Empty");
-            return;
-        }
-        System.out.println(arr[front]);
-        front++;
-
-    }
-    public static void peek(){
-        if(front==-1){
+        if(front==null){
             System.out.println("empty");
             return;
         }
-        System.out.println(arr[front]);
-
+        System.out.println(front.data);
+        front=front.next;
     }
-    public static void main(String[] args) {
+
+    static void main(String[] args) {
         enqueue(5);
         enqueue(4);
         enqueue(3);
         enqueue(2);
         enqueue(1);
-//        dequeue();
-//        dequeue();
-//        dequeue();
-//        dequeue();
-        peek();    }
+        dequeue();
+        dequeue();
+        dequeue();
+
+    }
 
 }
