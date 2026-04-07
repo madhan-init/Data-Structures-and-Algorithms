@@ -1,7 +1,7 @@
 import java.util.Arrays;
 public class Next_permu {
     static void main(String[] args) {
-        int[] arr={1,2,3};
+        int[] arr={4,3,2,1};
         int i=arr.length-2;
         while (i>=0 && arr[i]>=arr[i+1]){
             i--;
