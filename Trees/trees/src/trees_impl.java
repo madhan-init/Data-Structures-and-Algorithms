@@ -1,3 +1,5 @@
+import java.util.TreeSet;
+
 class TreeNode{
     int data;
     TreeNode left;
@@ -20,13 +22,30 @@ public class trees_impl {
         }
         return root;
     }
-    public static void display(TreeNode root){
+    public static void inorder(TreeNode root){
         if(root==null){
             return;
         }
-        display(root.left);
+        inorder(root.left);
         System.out.println(root.data);
-        display(root.right);
+        inorder(root.right);
+    }
+    public static void postorder(TreeNode root){
+        if(root==null){
+            return;
+        }
+        postorder(root.left);
+        System.out.println(root.data);
+        postorder(root.right);
+    }
+
+    public static void preorder(TreeNode root){
+        if(root==null){
+            return;
+        }
+        System.out.println(root.data);
+        preorder(root.left);
+        preorder(root.right);
     }
 
     static void main(String[] args) {
@@ -36,7 +55,6 @@ public class trees_impl {
         tr.root=insert(tr.root,1);
         tr.root=insert(tr.root,7);
         tr.root=insert(tr.root,8);
-        tr.display(root);
+        tr.postorder(root);
     }
-
 }
