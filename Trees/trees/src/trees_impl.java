@@ -7,6 +7,7 @@ class TreeNode{
         left=right=null;
     }
 }
+
 public class trees_impl {
     static TreeNode root;
     public static TreeNode insert(TreeNode root,int data){
@@ -36,7 +37,6 @@ public class trees_impl {
         System.out.println(root.data);
         postorder(root.right);
     }
-
     public static void preorder(TreeNode root){
         if(root==null){
             return;
@@ -82,17 +82,51 @@ static void displayleaf(TreeNode root){
         displayleaf(root.left);
         displayleaf(root.right);
 }
+static int height(TreeNode root){
+        if(root==null){
+            return 0;
+        }
+        int lh=height(root.left);
+        int rh=height(root.right);
+        if(lh>rh){
+            return lh+1;
+        }
+        else {
+            return rh+1;
+        }
+}
+ static  void printLevelOrder() {
+        int h = height(root);
+        int i;
+        for (i = 1; i <= h; i++)
+            printGivenLevel(root, i);
+    }
+     static void printGivenLevel(TreeNode root, int level) {
+        if(root==null){
+            return;
+        }
+        if(level==1){
+            System.out.println(root.data);
+        }
+        else if(level>1){
+            printGivenLevel(root.left, level - 1);
+            printGivenLevel(root.right, level - 1);
+        }
+    }
     static void main(String[] args) {
     trees_impl tr=new trees_impl();
-        tr.root=insert(tr.root,5);
         tr.root=insert(tr.root,6);
-        tr.root=insert(tr.root,1);
-        tr.root=insert(tr.root,7);
+        tr.root=insert(tr.root,2);
         tr.root=insert(tr.root,8);
-//        tr.postorder(root);
-        tr.delete(tr.root,7);
-//        tr.inorder(root);
-        tr.displayleaf(tr.root);
+        tr.root=insert(tr.root,1);
+        tr.root=insert(tr.root,4);
+        tr.root=insert(tr.root,7);
+        tr.root=insert(tr.root,9);
 
+//        tr.postorder(root);
+//        tr.delete(tr.root,7);
+//      tr.inorder(root);
+//        tr.displayleaf(tr.root);
+        tr.printLevelOrder();
     }
 }
