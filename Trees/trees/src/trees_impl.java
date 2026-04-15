@@ -7,13 +7,13 @@ class TreeNode{
         left=right=null;
     }
 }
-
 public class trees_impl {
     static TreeNode root;
     public static TreeNode insert(TreeNode root,int data){
         if(root==null){
             return new TreeNode(data);
         }
+
         if(data< root.data){
             root.left=insert(root.left,data );
         } else if (data > root.data) {
@@ -113,6 +113,18 @@ static int height(TreeNode root){
             printGivenLevel(root.right, level - 1);
         }
     }
+    static boolean ismirror(TreeNode leftsub, TreeNode rightsub){
+        if(leftsub == null && rightsub == null){
+            return true;
+        }
+        if(leftsub == null || rightsub == null){
+            return false;
+        }
+
+        return (leftsub.data == rightsub.data)
+                && ismirror(leftsub.left, rightsub.right)
+                && ismirror(leftsub.right, rightsub.left);
+    }
     static void main(String[] args) {
     trees_impl tr=new trees_impl();
         tr.root=insert(tr.root,6);
@@ -122,11 +134,11 @@ static int height(TreeNode root){
         tr.root=insert(tr.root,4);
         tr.root=insert(tr.root,7);
         tr.root=insert(tr.root,9);
-
 //        tr.postorder(root);
 //        tr.delete(tr.root,7);
 //      tr.inorder(root);
 //        tr.displayleaf(tr.root);
         tr.printLevelOrder();
+
     }
 }
