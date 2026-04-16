@@ -125,19 +125,32 @@ static int height(TreeNode root){
                 && ismirror(leftsub.left, rightsub.right)
                 && ismirror(leftsub.right, rightsub.left);
     }
+    public static void invert(TreeNode root){
+        if(root==null){
+            return;
+        }
+        TreeNode temp=root.left;
+        root.left=root.right;
+        root.right=temp;
+        invert(root.left);
+        invert(root.right);
+
+
+    }
     static void main(String[] args) {
     trees_impl tr=new trees_impl();
         tr.root=insert(tr.root,6);
         tr.root=insert(tr.root,2);
         tr.root=insert(tr.root,8);
         tr.root=insert(tr.root,1);
-        tr.root=insert(tr.root,4);
+        tr.root=insert(tr.root,3);
         tr.root=insert(tr.root,7);
         tr.root=insert(tr.root,9);
 //        tr.postorder(root);
 //        tr.delete(tr.root,7);
 //      tr.inorder(root);
 //        tr.displayleaf(tr.root);
+        tr.invert(tr.root);
         tr.printLevelOrder();
 
     }
