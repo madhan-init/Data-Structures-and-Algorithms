@@ -1,3 +1,6 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
 class TreeNode{
     int data;
     TreeNode left;
@@ -95,24 +98,28 @@ static int height(TreeNode root){
             return rh+1;
         }
 }
- static  void printLevelOrder() {
-        int h = height(root);
-        int i;
-        for (i = 1; i <= h; i++)
-            printGivenLevel(root, i);
-    }
-     static void printGivenLevel(TreeNode root, int level) {
-        if(root==null){
-            return;
-        }
-        if(level==1){
-            System.out.println(root.data);
-        }
-        else if(level>1){
-            printGivenLevel(root.left, level - 1);
-            printGivenLevel(root.right, level - 1);
-        }
-    }
+
+     static void printLevelOrder(TreeNode root) {
+         if (root == null) return;
+
+         Queue<TreeNode> queue = new LinkedList<>();
+         queue.add(root);
+
+         while (!queue.isEmpty()) {
+             // Poll the front of the queue
+             TreeNode tempNode = queue.poll();
+             System.out.print(tempNode.data + " ");
+
+             // Enqueue left child
+             if (tempNode.left != null) {
+                 queue.add(tempNode.left);
+             }
+
+             // Enqueue right child
+             if (tempNode.right != null) {
+                 queue.add(tempNode.right);
+             }
+         }}
     static boolean ismirror(TreeNode leftsub, TreeNode rightsub){
         if(leftsub == null && rightsub == null){
             return true;
@@ -134,8 +141,6 @@ static int height(TreeNode root){
         root.right=temp;
         invert(root.left);
         invert(root.right);
-
-
     }
     static void main(String[] args) {
     trees_impl tr=new trees_impl();
@@ -150,8 +155,8 @@ static int height(TreeNode root){
 //        tr.delete(tr.root,7);
 //      tr.inorder(root);
 //        tr.displayleaf(tr.root);
-        tr.invert(tr.root);
-        tr.printLevelOrder();
+//        tr.invert(tr.root);
+        tr.printLevelOrder(tr.root);
 
     }
 }
