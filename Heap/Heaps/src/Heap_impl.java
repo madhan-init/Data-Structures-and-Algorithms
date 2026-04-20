@@ -44,41 +44,41 @@ class MinHeap {
         }
     }
 
-    int extractMin() {
-        if (size <= 0) return -1;
+   int extractMin() {
+       if (size <= 0) return -1;
 
-        if (size == 1) {
-            size--;
-            return heap[0];
-        }
+       if (size == 1) {
+           size--;
+           return heap[0];
+       }
 
-        int root = heap[0];
+       int root = heap[0];
 
-        // Move last element to root
-        heap[0] = heap[size - 1];
-        size--;
+       // Move last element to root
+       heap[0] = heap[size - 1];
+       size--;
 
-        heapify(0);
+       heapify(0);
 
-        return root;
-    }
+       return root;
+   }
 
-    void heapify(int i) {
-        int smallest = i;
-        int l = left(i);
-        int r = right(i);
+   void heapify(int i) {
+       int smallest = i;
+       int l = left(i);
+       int r = right(i);
 
-        if (l < size && heap[l] < heap[smallest])
-            smallest = l;
+       if (l < size && heap[l] < heap[smallest])
+           smallest = l;
 
-        if (r < size && heap[r] < heap[smallest])
-            smallest = r;
+       if (r < size && heap[r] < heap[smallest])
+           smallest = r;
 
-        if (smallest != i) {
-            swap(i, smallest);
-            heapify(smallest);
-        }
-    }
+       if (smallest != i) {
+           swap(i, smallest);
+           heapify(smallest);
+       }
+   }
 
     void printHeap() {
         for (int i = 0; i < size; i++) {
@@ -96,10 +96,7 @@ public class Heap_impl {
         h.insert(5);
         h.insert(20);
         h.insert(2);
-
+        System.out.println(h.extractMin());
         h.printHeap();  // Output: 2 5 20 10
-
-        System.out.println("Extract Min: " + h.extractMin());
-        h.printHeap();  // Output after removal
     }
 }
