@@ -1,7 +1,6 @@
 import java.util.Collections;
 import java.util.Map;
 import java.util.TreeMap;
-
 public class Task_scheduler {
     public static void main(String[] args) {
         char[] tasks={'A','A','A','B','B','B'};
@@ -19,4 +18,8 @@ public class Task_scheduler {
         System.out.println( Math.max((maxfreq-1)*(n+1)+max,tasks.length));
     }
 }
+
+
+
+
 
