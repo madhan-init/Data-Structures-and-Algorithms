@@ -42,14 +42,7 @@ public class DFSGraph {
         graph.get(1).add(3);
         graph.get(1).add(4);
 
-        /*
-              0
-             / \
-            1   2
-           / \
-          3   4
-        */
-
+    
         dfs(0, graph, V);
     }
 }
