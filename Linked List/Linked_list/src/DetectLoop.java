@@ -6,10 +6,8 @@ public class DetectLoop {
         head.next.next = new Node(3);
         head.next.next.next = new Node(4);
         head.next.next.next.next = head.next;
-
         LoopExist(head);
     }
-
     public static void LoopExist(Node head) {
         Node slow=head;
         Node fast=head;
@@ -19,6 +17,7 @@ public class DetectLoop {
         if(slow==fast){
             System.out.println("Loop exist");
             return;
-        }}
+            }
+        }
     }
 }

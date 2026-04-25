@@ -24,7 +24,6 @@ public class Merge_sort {
         int right=mid+1;
         int i=0;
         while (left <= mid && right <= high){
-
             if (arr[left]<=arr[right]){
                 temp[i]=arr[left];
                 i++;
@@ -35,7 +34,6 @@ public class Merge_sort {
                 right++;
                 i++;
             }
-
         }
         while (left<=mid){
             temp[i]=arr[left];
@@ -47,12 +45,9 @@ public class Merge_sort {
             temp[i]=arr[right];
             right++;
             i++;
-
         }
         for ( i = 0; i < temp.length; i++) {
             arr[low + i] = temp[i];
-
-
         }
 
     }
